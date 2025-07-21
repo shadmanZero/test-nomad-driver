@@ -59,7 +59,7 @@ func taskConfig2FirecrackerOpts(taskConfig TaskConfig, cfg *drivers.TaskConfig) 
 	}
 
 	if len(taskConfig.BootOptions) > 0 {
-		opts.FcKernelCmdLine = taskConfig.BootOptions + defaultbootoptions
+		opts.FcKernelCmdLine = taskConfig.BootOptions
 	} else {
 		opts.FcKernelCmdLine = defaultbootoptions
 	}
