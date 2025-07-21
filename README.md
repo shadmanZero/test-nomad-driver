@@ -131,15 +131,16 @@ sudo mv firecracker-task-driver /opt/nomad/plugins/
 Add to your Nomad client configuration:
 
 ```hcl
+# In your Nomad agent configuration (e.g. nomad.hcl)
+
 client {
+  # This should be set to true for client agents
   enabled = true
-  
-  plugin "firecracker-task-driver" {
-    config {
-      enabled = true
-    }
-  }
 }
+
+# Enable the firecracker-task-driver.
+# Note: This plugin does not take any configuration options in the `plugin` block.
+plugin "firecracker-task-driver" {}
 ```
 
 ## How OCI Image Support Works

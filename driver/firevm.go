@@ -243,8 +243,8 @@ func (d *Driver) handleOCIImage(ctx context.Context, taskConfig TaskConfig, cfg 
 	}
 
 	// Create rootfs from OCI image in one step
-	rootfsPath := filepath.Join(workDir, "oci-rootfs.ext4")
-	
+	rootfsPath := filepath.Join(workDir, "rootfs.ext4")
+
 	var auth *OCIAuth
 	if taskConfig.OCIAuth.Username != "" && taskConfig.OCIAuth.Password != "" {
 		auth = &taskConfig.OCIAuth
