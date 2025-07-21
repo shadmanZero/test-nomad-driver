@@ -156,6 +156,7 @@ func (opts *options) getNetwork(AllocId string) ([]firecracker.NetworkInterface,
 	}
 
 	if len(opts.FcNetworkName) > 0 {
+		// Generate a random veth name to avoid conflicts.
 		veth, err := RandomVethName()
 		if err != nil {
 			return nil, err
@@ -164,7 +165,7 @@ func (opts *options) getNetwork(AllocId string) ([]firecracker.NetworkInterface,
 		nic := firecracker.NetworkInterface{
 			CNIConfiguration: &firecracker.CNIConfiguration{
 				NetworkName: opts.FcNetworkName,
-				IfName:  veth,
+				IfName:      veth,
 			},
 		}
 		NICs = append(NICs, nic)
